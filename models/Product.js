@@ -11,7 +11,7 @@ Product.init(
   {
     // define columns
     id:{
-      type: DataTypes.INTERGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
@@ -21,19 +21,26 @@ Product.init(
       allowNull: false,
     },
     price:{
-      type: DataTypes.INTERGER,
+      type: DataTypes.DECIMAL,
       allowNull: false,
+      validate: {
+        isDecimal: true
+      }
     },
     stock:{
-      type: DataTypes.INTERGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
+      defaultValue: 10,
+      Validate: {
+        isNumeric: true
+      }
     },
     //this column will store a reference of the 'id' of the 'Category' it belongs to.
     category_id:{
       type: DataTypes.INTEGER,
       references: {
         // This references the `Category` model, which we set in `Category.js` as its `modelName` property
-        model: 'Category',
+        model: 'category',
         key: 'id',
       },
     }

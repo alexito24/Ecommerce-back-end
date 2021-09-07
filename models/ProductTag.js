@@ -8,7 +8,7 @@ ProductTag.init(
   {
     // define columns
     id:{
-      type: DataTypes.INTERGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
@@ -18,7 +18,7 @@ ProductTag.init(
       type: DataTypes.STRING,
       references: {
         // This references the `Product` model, which we set in `Product.js` as its `modelName` property
-        model: 'Product',
+        model: 'product',
         key: 'id',
       },
     },
@@ -26,7 +26,7 @@ ProductTag.init(
       type: DataTypes.STRING,
       references: {
         // This references the `Tag` model, which we set in `Tag.js` as its `modelName` property
-        model: 'Tag',
+        model: 'tag',
         key: 'id',
       },
     },
